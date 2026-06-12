@@ -4,7 +4,7 @@
 
 Projeto desenvolvido para automatizar testes da API ServeRest utilizando Python, Pytest e Requests.
 
-Foram implementados testes para os endpoints de Usuários, Produtos e Carrinhos, validando diferentes cenários de sucesso e erro.
+Foram implementados testes para os endpoints de Usuários e Produtos, validando diferentes cenários de sucesso e erro.
 
 ## Tecnologias Utilizadas
 
@@ -20,7 +20,6 @@ desafio-serverest/
 ├── tests/
 │   ├── test_users.py
 │   ├── test_products.py
-│   └── test_carts.py
 │
 ├── .gitignore
 └── README.md
@@ -45,11 +44,6 @@ desafio-serverest/
 
 - Listar produtos
 - Buscar produto com ID inválido
-
-### Carrinhos
-
-- Listar carrinhos
-- Buscar carrinho com ID inválido
 
 ## Como Executar
 
