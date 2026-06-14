@@ -1,12 +1,6 @@
 import pytest
 import requests
-import uuid
-
-BASE_URL = "https://compassuol.serverest.dev"
-
-
-def generate_email():
-    return f"user_{uuid.uuid4().hex}@test.com"
+from helpers import BASE_URL, generate_email
 
 
 @pytest.fixture
@@ -18,7 +12,9 @@ def token_admin():
         "administrador": "true"
     }
 
-    requests.post(f"{BASE_URL}/usuarios", json=payload)
+    r = requests.post(f"{BASE_URL}/usuarios", json=payload)
+    assert r.status_code == 201, f"Falha ao criar usuário admin: {r.text}"
+    user_id = r.json()["_id"]
 
     login = {
         "email": payload["email"],
@@ -26,7 +22,9 @@ def token_admin():
     }
 
     response = requests.post(f"{BASE_URL}/login", json=login)
-
     assert response.status_code == 200, "Falha ao fazer login do admin"
 
-    return response.json()["authorization"]
+    yield response.json()["authorization"]
+
+    # Teardown: remove o usuário admin criado
+    requests.delete(f"{BASE_URL}/usuarios/{user_id}")

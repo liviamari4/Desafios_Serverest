@@ -1,7 +1,6 @@
 import requests
 import uuid
-
-BASE_URL = "https://compassuol.serverest.dev"
+from helpers import BASE_URL
 
 
 def test_listar_produtos():
@@ -58,6 +57,7 @@ def test_buscar_produto_por_id(token_admin):
         json=payload,
         headers=headers
     )
+    assert criado.status_code == 201, f"Falha ao criar produto: {criado.text}"
 
     produto_id = criado.json()["_id"]
 
@@ -87,6 +87,7 @@ def test_atualizar_produto(token_admin):
         json=payload,
         headers=headers
     )
+    assert criado.status_code == 201, f"Falha ao criar produto: {criado.text}"
 
     produto_id = criado.json()["_id"]
 
@@ -123,6 +124,7 @@ def test_excluir_produto(token_admin):
         json=payload,
         headers=headers
     )
+    assert criado.status_code == 201, f"Falha ao criar produto: {criado.text}"
 
     produto_id = criado.json()["_id"]
 

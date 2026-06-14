@@ -1,11 +1,6 @@
 import requests
 import uuid
-
-BASE_URL = "https://compassuol.serverest.dev"
-
-
-def generate_email():
-    return f"user_{uuid.uuid4().hex}@test.com"
+from helpers import BASE_URL, generate_email
 
 def test_listar_usuarios():
     response = requests.get(f"{BASE_URL}/usuarios")
@@ -52,25 +47,27 @@ def test_cadastrar_campos_faltando():
 
 def test_buscar_usuario():
     payload = {
-        "nome": "user test",
+        "nome": "User Teste",
         "email": generate_email(),
         "password": "123456",
         "administrador": "true"
     }
 
     criado = requests.post(f"{BASE_URL}/usuarios", json=payload)
+    assert criado.status_code == 201
+
     user_id = criado.json()["_id"]
 
     response = requests.get(f"{BASE_URL}/usuarios/{user_id}")
 
     assert response.status_code == 200
-    assert "_id" in response.json()
+    assert response.json()["_id"] == user_id
 
 def test_buscar_usuario_id_invalido():
     response = requests.get(f"{BASE_URL}/usuarios/id_que_nao_existe")
 
     assert response.status_code == 400
-
+    
 def test_atualizar_usuario():
    
     payload = {
@@ -80,6 +77,7 @@ def test_atualizar_usuario():
         "administrador": "true"
     }
     criado = requests.post(f"{BASE_URL}/usuarios", json=payload)
+    assert criado.status_code == 201, f"Falha ao criar usuário: {criado.text}"
     user_id = criado.json()["_id"]
 
     payload_atualizado = {
@@ -103,6 +101,7 @@ def test_excluir_usuario():
         "administrador": "true"
     }
     criado = requests.post(f"{BASE_URL}/usuarios", json=payload)
+    assert criado.status_code == 201, f"Falha ao criar usuário: {criado.text}"
     user_id = criado.json()["_id"]
 
     response = requests.delete(f"{BASE_URL}/usuarios/{user_id}")
