@@ -65,6 +65,11 @@ def test_buscar_produto_por_id(token_admin):
     assert response.status_code == 200
     assert "_id" in response.json()
 
+def test_buscar_produto_id_invalido():
+    response = requests.get(f"{BASE_URL}/produtos/id_invalido")
+
+    assert response.status_code == 400
+
 
 def test_atualizar_produto(token_admin):
     headers = {"Authorization": token_admin}
