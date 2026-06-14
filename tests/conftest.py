@@ -27,4 +27,6 @@ def token_admin():
 
     response = requests.post(f"{BASE_URL}/login", json=login)
 
+    assert response.status_code == 200, "Falha ao fazer login do admin"
+
     return response.json()["authorization"]

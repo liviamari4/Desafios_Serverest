@@ -98,6 +98,7 @@ def test_atualizar_produto(token_admin):
     )
 
     assert response.status_code == 200
+    assert "message" in response.json()
 
 
 def test_excluir_produto(token_admin):
