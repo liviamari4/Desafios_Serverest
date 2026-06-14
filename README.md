@@ -19,6 +19,7 @@ desafio-serverest/
 │
 ├── tests/
 │   ├── conftest.py
+│   ├── helpers.py
 │   ├── test_users.py
 │   ├── test_products.py
 │   └── test_login.py

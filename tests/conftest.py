@@ -25,6 +25,4 @@ def token_admin():
     assert response.status_code == 200, "Falha ao fazer login do admin"
 
     yield response.json()["authorization"]
-
-    # Teardown: remove o usuário admin criado
     requests.delete(f"{BASE_URL}/usuarios/{user_id}")

@@ -73,7 +73,16 @@ Validar os principais endpoints da API ServeRest, garantindo o funcionamento cor
 
 ---
 
-## 5. Critérios de qualidade
+## 5. Infraestrutura de testes
+
+| Arquivo | Responsabilidade |
+|---|---|
+| `helpers.py` | `BASE_URL` e `generate_email` centralizados |
+| `conftest.py` | Fixture `token_admin` — cria usuário admin, retorna token e faz teardown ao final |
+
+---
+
+## 6. Critérios de qualidade
 
 Um teste é considerado válido quando:
 
