@@ -27,6 +27,7 @@ def test_cadastrar_produto_admin(token_admin):
 
     assert response.status_code == 201
     assert "_id" in response.json()
+    assert response.json()["message"] == "Cadastro realizado com sucesso"
 
 
 def test_cadastrar_produto_sem_token_admin():
@@ -104,6 +105,7 @@ def test_atualizar_produto(token_admin):
 
     assert response.status_code == 200
     assert "message" in response.json()
+    assert response.json()["message"] == "Registro alterado com sucesso"
 
 
 def test_excluir_produto(token_admin):
@@ -131,3 +133,4 @@ def test_excluir_produto(token_admin):
 
     assert response.status_code == 200
     assert "message" in response.json()
+    assert response.json()["message"] == "Registro excluído com sucesso"
