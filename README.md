@@ -4,7 +4,7 @@
 
 Projeto desenvolvido para automatizar testes da API ServeRest utilizando Python, Pytest e Requests.
 
-Foram implementados testes para os endpoints de Usuários e Produtos, validando diferentes cenários de sucesso e erro.
+Foram implementados testes automatizados para os endpoints de Usuários e Produtos da API ServeRest, cobrindo cenários de sucesso e erro.
 
 ## Tecnologias Utilizadas
 
@@ -47,6 +47,12 @@ desafio-serverest/
 - Listar produtos
 - Buscar produto com ID inválido
 
+## Documentação
+
+O planejamento da suíte de testes está documentado no arquivo:
+
+- PLANO-DE-TESTES.md
+
 ## Como Executar
 
 ### Clonar o repositório
@@ -76,7 +82,7 @@ python -m venv .venv
 ### Instalar as dependências
 
 ```bash
-pip install pytest requests
+pip install -r requirements.txt
 ```
 
 ### Executar os testes
