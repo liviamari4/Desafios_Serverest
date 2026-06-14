@@ -4,7 +4,7 @@
 
 Projeto desenvolvido para automatizar testes da API ServeRest utilizando Python, Pytest e Requests.
 
-Foram implementados testes automatizados para os endpoints de Usuários e Produtos da API ServeRest, cobrindo cenários de sucesso e erro.
+Foram implementados testes automatizados para os endpoints de Usuários, Login e Produtos da API ServeRest, validando cenários de sucesso, autenticação e erro.
 
 ## Tecnologias Utilizadas
 
@@ -20,6 +20,7 @@ desafio-serverest/
 ├── tests/
 │   ├── test_users.py
 │   ├── test_products.py
+│   └── test_login.py
 │
 ├── PLANO-DE-TESTES.md
 ├── requirements.txt
@@ -42,10 +43,22 @@ desafio-serverest/
 - Cadastrar usuário com e-mail inválido
 - Cadastrar usuário com nome vazio
 
+### Login
+
+- Login com credenciais válidas
+- Login com senha incorreta
+- Login com e-mail inexistente
+- Login com campos vazios
+
 ### Produtos
 
 - Listar produtos
+- Cadastrar produto com token de administrador
+- Cadastrar produto sem token de administrador
+- Buscar produto por ID
 - Buscar produto com ID inválido
+- Atualizar produto
+- Excluir produto
 
 ## Documentação
 
