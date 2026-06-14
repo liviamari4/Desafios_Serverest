@@ -24,6 +24,7 @@ def test_cadastrar_usuario_valido():
 
     assert response.status_code == 201
     assert "_id" in response.json()
+    assert response.json()["message"] == "Cadastro realizado com sucesso"
 
 def test_cadastrar_email_duplicado():
     payload = {
@@ -91,6 +92,7 @@ def test_atualizar_usuario():
 
     assert response.status_code == 200
     assert "message" in response.json()
+    assert response.json()["message"] == "Registro alterado com sucesso"
     
 def test_excluir_usuario():
 
@@ -107,6 +109,7 @@ def test_excluir_usuario():
 
     assert response.status_code == 200
     assert "message" in response.json()
+    assert response.json()["message"] == "Registro excluído com sucesso"
 
 def test_cadastrar_email_invalido():
     payload = {
