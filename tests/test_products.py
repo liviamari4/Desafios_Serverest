@@ -59,7 +59,7 @@ def test_cadastrar_produto_admin():
     assert "_id" in response.json()
 
 
-def test_cadastrar_produto_sem_token():
+def test_cadastrar_produto_sem_token_admin():
     payload = {
         "nome": f"Produto {uuid.uuid4().hex[:6]}",
         "preco": 100,
