@@ -18,6 +18,7 @@ Foram implementados testes automatizados para os endpoints de Usuários, Login e
 desafio-serverest/
 │
 ├── tests/
+│   ├── conftest.py
 │   ├── test_users.py
 │   ├── test_products.py
 │   └── test_login.py
