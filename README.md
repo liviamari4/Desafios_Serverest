@@ -21,6 +21,8 @@ desafio-serverest/
 │   ├── test_users.py
 │   ├── test_products.py
 │
+├── PLANO-DE-TESTES.md
+├── requirements.txt
 ├── .gitignore
 └── README.md
 ```
