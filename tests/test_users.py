@@ -1,5 +1,4 @@
 import requests
-import uuid
 from helpers import BASE_URL, generate_email
 
 def test_listar_usuarios():

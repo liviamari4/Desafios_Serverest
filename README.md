@@ -56,7 +56,7 @@ desafio-serverest/
 
 - Listar produtos
 - Cadastrar produto com token de administrador
-- Cadastrar produto sem token de administrador
+- Cadastrar produto sem token
 - Buscar produto por ID
 - Buscar produto com ID inválido
 - Atualizar produto
